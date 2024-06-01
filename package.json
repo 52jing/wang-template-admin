@@ -1,0 +1,50 @@
+{
+  "name": "wang-template-admin",
+  "version": "0.1.0",
+  "description": "Admin frontend for Wang Template",
+  "productName": "Admin",
+  "author": "wwtg99",
+  "private": true,
+  "scripts": {
+    "lint": "eslint --ext .js,.ts,.vue ./",
+    "format": "prettier --write \"**/*.{js,ts,vue,scss,html,md,json}\" --ignore-path .gitignore",
+    "test": "echo \"No test specified\" && exit 0",
+    "dev": "yarn quasar dev",
+    "serve": "yarn quasar dev",
+    "build": "yarn quasar build"
+  },
+  "dependencies": {
+    "@quasar/extras": "^1.16.4",
+    "@types/crypto-js": "^4.2.2",
+    "@types/sm-crypto": "^0.3.4",
+    "axios": "^1.2.1",
+    "crypto-js": "^4.2.0",
+    "lodash": "^4.17.21",
+    "pinia": "^2.0.11",
+    "quasar": "^2.8.0",
+    "sm-crypto": "^0.3.13",
+    "vue": "^3.2.29",
+    "vue-i18n": "^9.2.2",
+    "vue-router": "^4.0.12"
+  },
+  "devDependencies": {
+    "@intlify/vite-plugin-vue-i18n": "^3.3.1",
+    "@quasar/app-vite": "^1.4.3",
+    "@types/lodash": "^4.14.202",
+    "@types/node": "^12.20.21",
+    "@typescript-eslint/eslint-plugin": "^5.10.0",
+    "@typescript-eslint/parser": "^5.10.0",
+    "autoprefixer": "^10.4.2",
+    "dotenv": "^16.4.1",
+    "eslint": "^8.11.0",
+    "eslint-config-prettier": "^8.1.0",
+    "eslint-plugin-vue": "^9.0.0",
+    "prettier": "^2.5.1",
+    "typescript": "^4.5.4"
+  },
+  "engines": {
+    "node": "^20 || ^18 || ^16",
+    "npm": ">= 6.13.4",
+    "yarn": ">= 1.21.1"
+  }
+}

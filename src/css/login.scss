@@ -1,0 +1,75 @@
+.login-container {
+  display: flex;
+  align-items: center;
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  margin: 0 auto;
+  overflow-y: auto;
+  padding: 10px 0;
+
+  .left-wrapper {
+    width: 60%;
+    height: 100%;
+    background-image: url('../assets/login1.png');
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+  }
+
+  .login-title {
+    height: 30%;
+    width: 42%;
+    text-align: end;
+    position: absolute;
+    top: 20%;
+
+    .login-h1 {
+      color: #333;
+      margin-bottom: 10px;
+      font-weight: 500;
+      font-size: 6.2vmin;
+      letter-spacing: 4px;
+    }
+
+    .login-h2 {
+      color: #333;
+      margin-bottom: 10px;
+      font-weight: 500;
+      font-size: 3vmin;
+      letter-spacing: 4px;
+    }
+  }
+
+  .login-wrapper {
+    border-radius: 40px;
+    background-color: #fff;
+    position: absolute;
+    right: 7%;
+    height: 420px;
+    width: 430px;
+    box-shadow: -4px 5px 10px rgba(0, 0, 0, 0.4);
+
+    .login-tabs {
+      width: 330px;
+      margin: 50px 50px 0 50px;
+
+      .el-tab-pane {
+        margin: 20px 0 0 0;
+      }
+    }
+
+    .login-bottom {
+      margin: 0 0 20px 0;
+      padding: 0 50px;
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .register-pane {
+      width: 330px;
+      margin: 50px 50px 0 50px;
+    }
+  }
+}
