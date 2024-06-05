@@ -85,7 +85,7 @@ const formConfig: M.FormConfigProps[] = [
   },
   { name: 'display', label: i18n.t('system.announcement.display'), type: 'checkbox' },
   { name: 'sort', label: i18n.t('system.announcement.sort'), type: 'number' },
-  { name: 'attachments', label: i18n.t('pages.attachments'), type: 'attachment', multipleFile: true },
+  { name: 'attachments', label: i18n.t('pages.attachments'), type: 'attachment', uploadType: 'announcement' },
   { name: 'remark', label: i18n.t('pages.remark'), type: 'textarea', maxlength: 500, counter: true }
 ]
 // 创建初始化对象

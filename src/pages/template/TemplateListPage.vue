@@ -39,7 +39,7 @@ const detailConfig: M.DetailConfigProps[] = [
   { name: 'name', label: i18n.t('template.template.name') },
   { name: 'type', label: i18n.t('template.template.type') },
   { name: 'defFilename', label: i18n.t('template.template.defFilename') },
-  { name: 'attachmentId', label: i18n.t('template.template.attachment'), type: 'attachment' },
+  { name: 'attachments', label: i18n.t('pages.attachments'), type: 'attachment' },
   { name: 'remark', label: i18n.t('pages.remark') },
   { name: 'createdTime', label: i18n.t('pages.createdTime'), type: 'date' },
   { name: 'createdBy', label: i18n.t('pages.createdBy') },
@@ -67,18 +67,13 @@ const formConfig: M.FormConfigProps[] = [
       val => !val || val.length <= 100 || i18n.t('message.inputAtMostNChars', [200]),
     ]
   },
-  {
-    name: 'attachmentId', label: i18n.t('template.template.attachment'), type: 'file', rules: [
-      val => val || i18n.t('template.template.inputAttachment')
-    ]
-  },
+  { name: 'attachments', label: i18n.t('pages.attachments'), type: 'attachment', uploadType: 'template', maxFiles: 1 },
   { name: 'remark', label: i18n.t('pages.remark'), type: 'textarea', maxlength: 500, counter: true }
 ]
 
 onBeforeMount(() => {
   getTemplateTypes().then(res => {
-    let types = res.data.data
-    templateTypes.value = types.map(d => { return { label: d, value: d } })
+    templateTypes.value = res.data.data.map(d => { return { label: d, value: d } })
   })
 })
 </script>

@@ -260,7 +260,6 @@ export interface FormConfigProps {
     | 'system_dict'
     | 'user_dict'
     | 'relation'
-    | 'file'
     | 'attachment'
     | 'icon_select'
     | 'select';
@@ -278,8 +277,8 @@ export interface FormConfigProps {
   relationOptionValue?: string;
   // 文件类型限制
   fileAccept?: string;
-  // 是否允许多文件上传
-  multipleFile?: boolean;
+  // 上传文件分类
+  uploadType?: string;
   // 最大文件大小
   maxFileSize?: number;
   // 最大文件数量限制
@@ -288,7 +287,8 @@ export interface FormConfigProps {
   rules?: ValidationRule[];
   // 是否可清除
   clearable?: boolean;
-  selectOptions?: () => OptionItem[];
+  // 选择的选项
+  selectOptions?: OptionItem[] | (() => OptionItem[]);
 }
 
 /**
@@ -422,6 +422,7 @@ export class Attachment extends CommonEntity {
   filename = '';
   originalFilename = '';
   contentType = '';
+  hashInfo = '';
   thUrl = '';
   thSize = 0;
   thContentType = '';
@@ -447,4 +448,27 @@ export class QuickLink extends CommonEntity {
   icon = '';
   path = '';
   sort = '';
+}
+
+/**
+ * 数据源
+ */
+export class Datasource extends CommonEntity {
+  name = '';
+  type = '';
+  config = '';
+  connected = false;
+  remark = '';
+}
+
+/**
+ * 数据源参数
+ */
+export class DatasourceParam extends CommonEntity {
+  name = '';
+  label = '';
+  datasourceId = '';
+  required = false;
+  defVal = '';
+  config = '';
 }

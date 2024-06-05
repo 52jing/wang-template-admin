@@ -6,15 +6,15 @@
       <template v-slot:top>
         <q-btn-group class="q-mb-md">
           <q-btn v-if="!hideCreateBtn && hasCreatePermission" text-color="info" :disable="loading" @click="onAddRow">{{
-      $t('buttons.New')
-    }}</q-btn>
+            $t('buttons.New')
+            }}</q-btn>
           <q-btn v-if="!hideDeleteBtn && hasDeletePermission" text-color="negative"
             :disable="loading || selectedRows.length === 0" @click="onRemoveSelectedRows">{{
-      $t('buttons.DeleteSelected')
-    }}</q-btn>
+              $t('buttons.DeleteSelected')
+            }}</q-btn>
           <q-btn v-if="!hideExportBtn" text-color="secondary" :disable="loading" @click="onExport">{{
-      $t('buttons.Export')
-    }}</q-btn>
+            $t('buttons.Export')
+            }}</q-btn>
           <q-btn v-if="!hideRefreshBtn" :disable="loading" @click="refresh">{{ $t('buttons.Refresh')
             }}</q-btn>
           <q-btn-dropdown v-if="!hideColumnConfigBtn" :disable="loading" size="sm" icon="fa-solid fa-gear">
@@ -40,10 +40,10 @@
           <q-btn v-if="!hideViewBtn" flat dense @click="onViewRow(key, row)">{{ $t('buttons.View') }}</q-btn>
           <q-btn v-if="!hideEditBtn && hasUpdatePermission && row.readonly !== true" flat dense
             @click="onEditRow(key, row)">{{
-      $t('buttons.Edit') }}</q-btn>
+              $t('buttons.Edit') }}</q-btn>
           <q-btn v-if="!hideDeleteBtn && hasDeletePermission && row.readonly !== true" flat dense
             @click="onRemoveRow(key, row)">{{
-            $t('buttons.Delete') }}</q-btn>
+              $t('buttons.Delete') }}</q-btn>
           <slot name="operation" :key="key" :row="row"></slot>
         </q-td>
       </template>

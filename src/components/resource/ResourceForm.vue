@@ -36,21 +36,17 @@
             :rules="item.rules" :clearable="item.clearable" :filled="filled" :outlined="outlined"
             :borderless="borderless" :standout="standout" v-model="obj[item.name]" emit-value
             map-options></relation-select>
-          <file-uploader v-else-if="item.type === 'file'" :label="item.label" :rules="item.rules" :filled="filled"
-            :outlined="outlined" :borderless="borderless" :standout="standout" v-model="obj[item.name]"
-            :accept="item.fileAccept" :multiple="item.multipleFile" :max-file-size="item.maxFileSize"
-            :max-files="item.maxFiles"></file-uploader>
           <file-uploader v-else-if="item.type === 'attachment'" :label="item.label" :rules="item.rules" :filled="filled"
-            :outlined="outlined" :borderless="borderless" :standout="standout" v-model="files"
-            :file-list="attachmentList" :accept="item.fileAccept" :multiple="item.multipleFile"
-            :max-file-size="item.maxFileSize" :max-files="item.maxFiles"></file-uploader>
+            :outlined="outlined" :borderless="borderless" :standout="standout" v-model="obj[item.name]"
+            :file-list="attachmentList" :accept="item.fileAccept" show-download-btn show-delete-btn
+            :max-file-size="item.maxFileSize" :max-files="item.maxFiles" :upload-type="item.uploadType"></file-uploader>
           <icon-select v-else-if="item.type === 'icon_select'" :label="item.label" :rules="item.rules"
             :clearable="item.clearable" :filled="filled" :outlined="outlined" :borderless="borderless"
             :standout="standout" v-model="obj[item.name]"></icon-select>
           <q-select v-else-if="item.type === 'select'" :label="item.label" :rules="item.rules"
             :clearable="item.clearable" :filled="filled" :outlined="outlined" :borderless="borderless"
-            :standout="standout" :options="item.selectOptions ? item.selectOptions() : []" emit-value map-options
-            v-model="obj[item.name]"></q-select>
+            :standout="standout" v-model="obj[item.name]" emit-value map-options
+            :options="getSelectOptions(item.selectOptions)"></q-select>
         </template>
 
       </q-card-section>
@@ -70,7 +66,7 @@
 </template>
 
 <script setup lang="ts">
-import { ref, reactive, computed } from 'vue';
+import { reactive, computed } from 'vue';
 import _ from 'lodash';
 import * as M from 'src/components/models';
 import SystemDictSelect from 'src/components/common/SystemDictSelect.vue';
@@ -133,19 +129,21 @@ const attachmentList = computed(() => {
   }
 })
 
-const files = ref<string | string[]>()
+function getSelectOptions(options?: M.OptionItem[] | (() => M.OptionItem[])) {
+  if (options) {
+    if (_.isFunction(options)) {
+      return options()
+    } else {
+      return options
+    }
+  }
+  return []
+}
 
 /**
  * 提交事件处理
  */
 function onSubmit() {
-  if (files.value) {
-    if (_.isArray(files.value)) {
-      _.set(obj, 'attachments', _.map(files.value, s => { return { id: s } }))
-    } else {
-      _.set(obj, 'attachments', [{ id: files.value }])
-    }
-  }
   emit('submit', obj)
 }
 

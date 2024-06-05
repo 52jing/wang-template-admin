@@ -233,10 +233,30 @@ const routes: RouteRecordRaw[] = [
       // 模板管理
       {
         path: 'template/template',
-        name: C.routeQuickLinkManageName,
+        name: 'templateList',
         component: () => import('pages/template/TemplateListPage.vue'),
         meta: {
           title: 'template.template.pageTitle',
+          requiresAuth: true,
+        },
+      },
+      // 数据源管理
+      {
+        path: 'template/datasource',
+        name: 'datasourceList',
+        component: () => import('pages/template/DatasourceListPage.vue'),
+        meta: {
+          title: 'template.datasource.pageTitle',
+          requiresAuth: true,
+        },
+      },
+      {
+        path: 'template/datasource/:id',
+        name: 'datasourceDetail',
+        component: () => import('pages/template/DatasourceDetailPage.vue'),
+        props: true,
+        meta: {
+          title: 'template.datasource.pageTitle',
           requiresAuth: true,
         },
       },

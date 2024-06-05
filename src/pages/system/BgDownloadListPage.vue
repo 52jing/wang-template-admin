@@ -49,8 +49,9 @@
   <common-list-page ref="compRef" :label="label" :resource="resource" :columns="columns" :detailConfig="detailConfig"
     :listFilter="listFilter" :hideSearch="true" :hideCreateBtn="true" :hideEditBtn="true" :hideDeleteBtn="true">
     <template v-slot:operation="slotProps">
-      <q-btn v-if="slotProps.row.attachmentId" flat dense @click="downloadAttachment(slotProps.row)">{{
-            $t('buttons.Download') }}</q-btn>
+      <q-btn v-if="slotProps.row.attachments && slotProps.row.attachments.length > 0" flat dense
+        @click="downloadAttachment(slotProps.row)">{{
+          $t('buttons.Download') }}</q-btn>
     </template>
   </common-list-page>
 
@@ -117,12 +118,14 @@ function onFilter() {
 
 // 下载附件
 function downloadAttachment(row: object) {
-  const aid = _.get(row, 'attachmentId')
-  if (aid) {
+  const attachments: M.Attachment[] = _.get(row, 'attachments')
+  if (attachments && attachments.length > 0) {
     // 单个附件
-    download(aid).then(res => {
-      downloadBlobFile(res)
-    })
+    if (attachments.length === 1) {
+      download(attachments[0].id).then(res => {
+        downloadBlobFile(res)
+      })
+    }
   }
 }
 
