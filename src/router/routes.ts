@@ -260,6 +260,16 @@ const routes: RouteRecordRaw[] = [
           requiresAuth: true,
         },
       },
+      // 渲染执行
+      {
+        path: 'template/render_execution',
+        name: 'renderExecutionList',
+        component: () => import('pages/template/RenderExecutionListPage.vue'),
+        meta: {
+          title: 'template.renderExecution.pageTitle',
+          requiresAuth: true,
+        },
+      },
     ],
   },
   // 登录

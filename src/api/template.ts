@@ -62,6 +62,13 @@ export function retrieveDatasourceData(
   return api.post(url, params);
 }
 
+export function startRenderExecution(
+  data: M.RenderExecutionStart
+): Promise<AxiosResponse<M.ResponseDetailData>> {
+  const url = '/template/render_execution/start';
+  return api.post(url, data);
+}
+
 export const datasourceTypes: M.OptionItem[] = [
   { label: '数据库SQL', value: 'db_sql' },
 ];

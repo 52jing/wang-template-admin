@@ -75,8 +75,9 @@ function onSubmit() {
   retrieveDatasourceData(props.id, formdata.value).then(res => {
     const redata = res.data.data
     jsonData.value = JSON.stringify(redata, null, 2)
-    loading.value = false
     emit('retrieve', <object>redata)
+  }).finally(() => {
+    loading.value = false
   })
 }
 

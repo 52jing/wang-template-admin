@@ -472,3 +472,13 @@ export class DatasourceParam extends CommonEntity {
   defVal = '';
   config = '';
 }
+
+/**
+ * 创建执行
+ */
+export class RenderExecutionStart {
+  templateId = '';
+  datasourceId = '';
+  filename = '';
+  params: { [key: string]: string } = {};
+}
