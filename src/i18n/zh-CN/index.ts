@@ -393,6 +393,7 @@ export default {
       configTips: '请先添加数据源参数，再进行配置。',
       retrieveData: '获取数据',
       retrievedData: '获取的数据',
+      expandOnOne: '仅获取到一条数据时展开为对象',
     },
     renderExecution: {
       pageTitle: '文档生成',
@@ -408,6 +409,9 @@ export default {
       filename: '文件名',
       datasourceParams: '数据源参数',
       startSuccess: '启动成功',
+      executionId: '执行ID',
+      executionParams: '执行参数',
+      results: '执行结果',
     },
   },
 };

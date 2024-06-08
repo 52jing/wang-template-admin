@@ -258,6 +258,7 @@ const routes: RouteRecordRaw[] = [
         meta: {
           title: 'template.datasource.pageTitle',
           requiresAuth: true,
+          noHistory: true,
         },
       },
       // 渲染执行
@@ -268,6 +269,17 @@ const routes: RouteRecordRaw[] = [
         meta: {
           title: 'template.renderExecution.pageTitle',
           requiresAuth: true,
+        },
+      },
+      {
+        path: 'template/render_execution/:id',
+        name: 'renderExecutionDetail',
+        component: () => import('pages/template/RenderExecutionDetailPage.vue'),
+        props: true,
+        meta: {
+          title: 'template.renderExecution.pageTitle',
+          requiresAuth: true,
+          noHistory: true,
         },
       },
     ],

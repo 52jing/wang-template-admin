@@ -10,7 +10,7 @@
           <div>
             <span v-if="item.connected"><q-icon name="check" color="positive"></q-icon> {{
               $t('template.datasource.isConnected')
-              }}</span>
+            }}</span>
             <span v-else><q-icon name="warning" color="warning"></q-icon> {{ $t('template.datasource.notConfiged')
               }}<span class="q-ml-sm">({{ $t('template.datasource.configTips') }})</span></span>
           </div>
@@ -90,6 +90,7 @@
           <q-input v-model="configForm.sql" :label="$t('template.datasource.sql')" type="textarea"
             :hint="$t('template.datasource.sqlHint')"
             :rules="[val => val && val.length > 0 || $t('template.datasource.inputConfigSql')]"></q-input>
+          <q-checkbox v-model="configForm.expandOnOne" :label="$t('template.datasource.expandOnOne')" />
 
         </q-card-section>
         <q-card-actions align="right">

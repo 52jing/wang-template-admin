@@ -482,3 +482,28 @@ export class RenderExecutionStart {
   filename = '';
   params: { [key: string]: string } = {};
 }
+
+/**
+ * 渲染执行
+ */
+export class RenderExecution extends CommonEntity {
+  templateId = '';
+  templateName = '';
+  templateType = '';
+  datasourceId = '';
+  datasourceName = '';
+  datasourceType = '';
+  params = '';
+  status = '';
+  filename = '';
+}
+
+/**
+ * 执行结果
+ */
+export class ExecutionResult extends CommonEntity {
+  executionId = '';
+  status = '';
+  message = '';
+  attachments: Attachment[] = [];
+}

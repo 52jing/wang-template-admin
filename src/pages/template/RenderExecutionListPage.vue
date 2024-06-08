@@ -3,7 +3,11 @@
     <q-btn color="primary" @click="onStart">{{ $t('template.renderExecution.startExecution') }}</q-btn>
   </div>
   <common-list-page ref="compRef" :label="label" :resource="resource" :perm-prefix="permPrefix" :columns="columns"
-    hide-selection hide-create-btn hide-delete-btn>
+    hide-selection hide-create-btn hide-delete-btn hideViewBtn hideEditBtn>
+    <template v-slot:operation="slotProps">
+      <q-btn flat dense @click="onView(slotProps.key, slotProps.row)">{{
+        $t('buttons.View') }}</q-btn>
+    </template>
     <template v-slot:dialog="slotProps">
       <q-card v-if="slotProps.dialogType === 'start'">
         <q-card-section>
@@ -43,12 +47,14 @@ import CommonListPage from 'src/components/resource/CommonListPage.vue';
 import * as M from 'src/components/models';
 import { useI18n } from 'vue-i18n';
 import { useCommonPage } from 'src/utils/uses';
+import { useRouter } from 'vue-router';
 import RelationSelect from 'src/components/common/RelationSelect.vue';
 import { getDatasourceParams, startRenderExecution } from 'src/api/template';
 import { notifySuccess } from 'src/utils/notify';
 
 const i18n = useI18n();
 useCommonPage();
+const router = useRouter();
 
 // 资源名称
 const label = i18n.t('template.renderExecution.resourceTitle')
@@ -81,6 +87,10 @@ const loading = ref(false)
 function onStart() {
   compRef.value.updateSelected('', undefined)
   compRef.value.updateDialog(true, 'start')
+}
+
+function onView(key: string, row: object) {
+  router.push({ name: 'renderExecutionDetail', params: { id: key } })
 }
 
 function onChangeDatasource() {

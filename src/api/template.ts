@@ -69,6 +69,13 @@ export function startRenderExecution(
   return api.post(url, data);
 }
 
+export function getExecutionResults(
+  id: string
+): Promise<AxiosResponse<M.ResponseRelationListData>> {
+  const url = `/template/render_execution/${id}/results`;
+  return api.get(url);
+}
+
 export const datasourceTypes: M.OptionItem[] = [
   { label: '数据库SQL', value: 'db_sql' },
 ];
