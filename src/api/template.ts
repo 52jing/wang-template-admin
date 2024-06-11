@@ -84,3 +84,15 @@ export const supportedDatabase: M.OptionItem[] = [
   { label: 'MySQL', value: 'mysql' },
   { label: 'Postgresql', value: 'postgresql' },
 ];
+
+export function indicatorAnalysis(
+  formdata: FormData
+): Promise<AxiosResponse<M.ResponseRelationListData>> {
+  const url = '/analysis/indicator';
+  return api.post(url, formdata, {
+    headers: { 'Content-Type': 'multipart/form-data' },
+    meta: {
+      noCrypto: true,
+    },
+  });
+}

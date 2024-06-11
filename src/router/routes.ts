@@ -282,6 +282,16 @@ const routes: RouteRecordRaw[] = [
           noHistory: true,
         },
       },
+      // 分析
+      {
+        path: 'analysis',
+        name: 'analysis',
+        component: () => import('pages/analysis/AnalysisPage.vue'),
+        meta: {
+          title: 'template.analysis.pageTitle',
+          requiresAuth: true,
+        },
+      },
     ],
   },
   // 登录

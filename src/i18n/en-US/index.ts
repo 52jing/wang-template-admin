@@ -413,5 +413,12 @@ export default {
       executionParams: 'Render Params',
       results: 'Results',
     },
+    analysis: {
+      pageTitle: 'Document Analysis',
+      indicatorUploadHint: 'Support Word, PDF or scanned images.',
+      indicatorResult: 'Indicator Result',
+      uploadFile: 'Upload File',
+      indicatorAnalysis: 'Primary Indicator Analysis',
+    },
   },
 };

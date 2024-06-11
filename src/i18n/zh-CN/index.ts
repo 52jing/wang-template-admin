@@ -413,5 +413,12 @@ export default {
       executionParams: '执行参数',
       results: '执行结果',
     },
+    analysis: {
+      pageTitle: '文档分析',
+      indicatorUploadHint: '支持上传Word、PDF或者文档扫描图片。',
+      indicatorResult: '分析指标',
+      uploadFile: '上传文件',
+      indicatorAnalysis: '主要指标分析',
+    },
   },
 };
