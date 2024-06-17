@@ -2,7 +2,7 @@
   <common-list-page :label="label" :resource="resource" :perm-prefix="permPrefix" :columns="columns"
     :createFormConfig="formConfig" :editFormConfig="formConfig" hideViewBtn>
     <template v-slot:operation="slotProps">
-      <q-btn flat dense @click="onViewDatasource(slotProps.key, slotProps.row)">{{
+      <q-btn flat dense @click="onViewDatasource(slotProps.key)">{{
         $t('buttons.View') }}</q-btn>
     </template>
   </common-list-page>
@@ -61,7 +61,7 @@ const formConfig: M.FormConfigProps[] = [
   { name: 'remark', label: i18n.t('pages.remark'), type: 'textarea', maxlength: 500, counter: true }
 ]
 
-function onViewDatasource(key: M.IdType, row: object) {
+function onViewDatasource(key: M.IdType) {
   router.push({ name: 'datasourceDetail', params: { id: key } })
 }
 

@@ -346,7 +346,7 @@ export default {
   // 模板
   template: {
     template: {
-      pageTitle: '模板',
+      pageTitle: '模板管理',
       resourceTitle: '模板',
       name: '模板名称',
       type: '模板类型',
@@ -357,7 +357,7 @@ export default {
       inputAttachment: '请上传模板文件！',
     },
     datasource: {
-      pageTitle: '数据源',
+      pageTitle: '数据源管理',
       resourceTitle: '数据源',
       name: '数据源名称',
       type: '数据源类型',

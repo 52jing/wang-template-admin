@@ -5,7 +5,7 @@
   <common-list-page ref="compRef" :label="label" :resource="resource" :perm-prefix="permPrefix" :columns="columns"
     hide-selection hide-create-btn hide-delete-btn hideViewBtn hideEditBtn>
     <template v-slot:operation="slotProps">
-      <q-btn flat dense @click="onView(slotProps.key, slotProps.row)">{{
+      <q-btn flat dense @click="onView(slotProps.key)">{{
         $t('buttons.View') }}</q-btn>
     </template>
     <template v-slot:dialog="slotProps">
@@ -89,7 +89,7 @@ function onStart() {
   compRef.value.updateDialog(true, 'start')
 }
 
-function onView(key: string, row: object) {
+function onView(key: string) {
   router.push({ name: 'renderExecutionDetail', params: { id: key } })
 }
 
@@ -103,7 +103,7 @@ function onChangeDatasource() {
 
 function onSubmitStart() {
   loading.value = true
-  startRenderExecution(startForm.value).then(res => {
+  startRenderExecution(startForm.value).then(() => {
     notifySuccess('template.renderExecution.startSuccess')
     compRef.value.refresh()
     compRef.value.updateDialog(false, '')
