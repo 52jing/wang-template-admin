@@ -1,6 +1,8 @@
-# WangBoot
+<h4 align="right"><strong>English</strong> | <a href="./README_zh.md">简体中文</a></h4>
 
-Admin frontend for WangBoot.
+# WangTemplate
+
+Admin frontend for WangTemplate.
 
 ## Install the dependencies
 
