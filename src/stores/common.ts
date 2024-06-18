@@ -151,7 +151,7 @@ export const useCommonStore = defineStore('common', {
     // 页面配置
     pageConfig: new PageConfig(),
     // 默认侧边菜单标题
-    defaultMenuTitle: 'WangBoot',
+    defaultMenuTitle: 'WangTemplate',
     // 多语言管理
     langs: new LangManager(),
     // 系统字典
