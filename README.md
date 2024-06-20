@@ -1,5 +1,11 @@
 <h4 align="right"><strong>English</strong> | <a href="./README_zh.md">简体中文</a></h4>
 
+<p align="center">
+   <img src="https://img.shields.io/badge/license-Apache-blue.svg" alt="license">
+   <img src="https://img.shields.io/badge/Nodejs-16+-green.svg" alt="nodejs">
+   <img src="https://img.shields.io/badge/Vuejs-3-blue.svg" alt="vuejs">
+</p>
+
 # WangTemplate
 
 Admin frontend for WangTemplate.

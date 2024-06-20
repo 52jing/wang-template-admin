@@ -1,5 +1,11 @@
 <h4 align="right"><a href="./README.md">English</a> | <strong>简体中文</strong></h4>
 
+<p align="center">
+   <img src="https://img.shields.io/badge/license-Apache-blue.svg" alt="license">
+   <img src="https://img.shields.io/badge/Nodejs-16+-green.svg" alt="nodejs">
+   <img src="https://img.shields.io/badge/Vuejs-3-blue.svg" alt="vuejs">
+</p>
+
 # WangTemplate: 简洁易用的报告生成系统
 
 ## 描述
