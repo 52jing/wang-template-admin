@@ -6,11 +6,127 @@
    <img src="https://img.shields.io/badge/Vuejs-3-blue.svg" alt="vuejs">
 </p>
 
-# WangTemplate
+# WangTemplate: A Template Based Report Render Platform
 
-Admin frontend for WangTemplate.
+# Introduction
 
-## Install the dependencies
+This system is a report rendering module extracted from the actual production platform, as a stand-alone report generation system.
+
+This system is BS architecture, this project is a frontend service:
+
+- Github: [https://github.com/52jing/wang-template-admin](https://github.com/52jing/wang-template-admin)
+- Gitee: [https://gitee.com/i52jing/wang-template-admin](https://gitee.com/i52jing/wang-template-admin)
+
+Backend service at:
+
+- Github: [https://github.com/52jing/wang-template-backend](https://github.com/52jing/wang-template-backend)
+- Gitee: [https://gitee.com/i52jing/wang-template-backend](https://gitee.com/i52jing/wang-template-backend)
+
+## Features
+
+1. Lightweight
+
+```
+This system only focuses on report generation, which can interface with any data source and generate corresponding reports through customized templates.
+```
+
+2. Extensible
+
+```
+The system adopts a modular architecture and an interface-oriented design, which makes it easy to quickly extend other data sources and rendering methods.
+```
+
+3. Easy Integration
+
+```
+Easily integrated into other systems as a module for report generation functions.
+```
+
+4. More Intelligent
+
+```
+Integration of AIGC services provides smarter report generation capabilities.
+```
+
+## Core Tech Stack
+
+| Tech       | Version |
+| ---------- | ------- |
+| Node       | 16+     |
+| Vue        | 3+      |
+| Typescript |         |
+| Quasar     | 2+      |
+
+## Deployment
+
+### Quick Start
+
+Use docker compose to quickly deploy:
+
+- Github: [https://github.com/52jing/wang-template-compose](https://github.com/52jing/wang-template-compose)
+- Gitee: [https://gitee.com/i52jing/wang-template-compose](https://gitee.com/i52jing/wang-template-compose)
+
+### Deploy Backend
+
+#### Docker
+
+Build Image
+
+```
+docker build -t wang-template-backend:1.0 .
+```
+
+Mount config file and start container
+
+```
+docker run -d --name wang-template-backend -p 8000:8000 -v <path-to-config>/application-prod.yml:/opt/config/application-prod.yml wang-template-backend:1.0
+```
+
+#### Manually
+
+Package by Maven
+
+```
+mvn clean package -DskipTests
+```
+
+Jar file is under app/target/app.jar, add config file and start jar.
+
+### Deploy Frontend
+
+#### Docker
+
+Build Image
+
+```
+docker build -t wang-template-admin:1.0 .
+```
+
+Start Container
+
+```
+docker run -d --name wang-template-admin -p 8001:80 wang-template-admin:1.0
+```
+
+#### Manually
+
+Build by Vite
+
+```
+yarn build
+```
+
+Files are under dist/spa directory.
+
+Note: Since the frontend defaults to the same domain and port for backend services, you need to use a front load-balancing proxy, or configure the backend request base path when build the frontend (see Environment Variables).
+
+## Snapshots
+
+Please refer to repository [Github](https://github.com/52jing/wang-template-backend) / [Gitee](https://gitee.com/i52jing/wang-template-backend) .
+
+## Development
+
+### Install the dependencies
 
 ```bash
 yarn
